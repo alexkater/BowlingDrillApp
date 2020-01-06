@@ -10,7 +10,8 @@ target 'BowlingDrilling' do
   # Functional reactive programming library used across all app.
   # - https://github.com/ReactiveCocoa/ReactiveCocoa
   pod 'ReactiveCocoa', '10.0.0'
-
+  pod 'Giphy'
+  
   # Pods for BowlingDrilling
 
   target 'BowlingDrillingTests' do

@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseDatabase
+import GiphyUISDK
+import GiphyCoreSDK
 
 // TODO: @aarjonilla move to another extensiiom
 extension Array {
@@ -22,6 +24,10 @@ class TableViewController: UITableViewController {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var createNewUserButton: UIButton!
+    @IBOutlet weak var selectGifButton: UIButton!
+
+    private let mediaView = GPHMediaView()
+    private var giphyController: GiphyViewController?
 
     var firebaseService = stateManager.firebaseDatabase
     var users: [User] = [] {
@@ -35,19 +41,44 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GiphyUISDK.configure(apiKey: "wlbQz6IczlcwIMg7ER3vxlvqwys9IVKN")
+
         tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView()
         tableView.reloadData()
 
-        let databaseHandle = firebaseService.observeObjects(query: firebaseService.query(for: FirebaseRouter.users.path)) { (users: [User]) in
+        _ = firebaseService.observeObjects(query: firebaseService.query(for: FirebaseRouter.users.path)) { (users: [User]) in
             print("Users")
             print(users)
             self.users = users
         }
 
+        GiphyCore.shared.gifByID(UserDefaults.mediaId) { (response, error) in
+            if let media = response?.data {
+                DispatchQueue.main.sync { [weak self] in
+                    self?.mediaView.setMedia(media)
+                }
+            }
+        }
+
+        mediaView.contentMode = .scaleAspectFit
+        self.tableView.backgroundView = mediaView
+
         createNewUserButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
             self?.showDrillViewController()
         }
+        selectGifButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
+            self?.presentGiphy()
+        }
+    }
+
+    func presentGiphy() {
+        let giphyController = GiphyViewController()
+        giphyController.mediaTypeConfig = [.gifs]
+        present(giphyController, animated: true, completion: { [weak self] in
+            self?.giphyController = giphyController
+            self?.giphyController?.delegate = self
+        })
     }
 }
 
@@ -63,7 +94,10 @@ extension TableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .clear
         cell.textLabel?.text = users[safe: indexPath.item]?.name
+        cell.selectionStyle = .none
         return cell
     }
 
@@ -97,6 +131,34 @@ private extension TableViewController {
 
         let controller = DrillViewController.instantiate()
         controller.user.value = user
-        showDetailViewController(controller, sender: self)
+        present(controller, animated: true, completion: nil)
+    }
+}
+
+extension TableViewController: GiphyDelegate {
+
+    func didDismiss(controller: GiphyViewController?) {
+        giphyController = nil
+    }
+
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        self.mediaView.setMedia(media)
+        UserDefaults.save(mediaId: media.id)
+        giphyController?.dismiss(animated: true, completion: { [weak self] in
+            self?.giphyController = nil
+        })
+   }
+}
+
+extension UserDefaults {
+
+    private static var mediaIdKey: String { return "MediaIDKey"}
+
+    static func save(mediaId id: String) {
+        UserDefaults.standard.set(id, forKey: Self.mediaIdKey)
+    }
+
+    static var mediaId: String {
+        return UserDefaults.standard.string(forKey: mediaIdKey) ?? "l46CxnIvqj8BiLZLy"
     }
 }

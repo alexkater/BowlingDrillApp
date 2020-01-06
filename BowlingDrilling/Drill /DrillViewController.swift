@@ -17,10 +17,10 @@ class DrillViewController: UIViewController {
     @IBOutlet weak var thumbHolePitchView: PitchView!
     @IBOutlet weak var righHandButton: UIButton!
     @IBOutlet weak var leftHandButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     var user = MutableProperty<User?>(nil)
     private let firebaseService = stateManager.firebaseDatabase
@@ -29,6 +29,7 @@ class DrillViewController: UIViewController {
         super.viewDidLoad()
 
         setupBindings()
+        scrollView.scrollRectToVisible(nameTextField.frame, animated: true)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -36,6 +37,11 @@ class DrillViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.createLines()
         }
+    }
+
+    @IBAction func exitAction(_ sender: Any) {
+        saveUser()
+        dismiss(animated: true, completion: nil)
     }
 
     static func instantiate() -> Self
@@ -90,13 +96,6 @@ private extension DrillViewController {
         leftHandButton.reactive.isSelected <~ user.producer.skipNil().map({ !$0.hand.isRightHanded })
         nameTextField.reactive.text <~ user.producer.skipNil().map { $0.name }
 
-        saveButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
-            let firebaseReference = self?.firebaseService.query(for: FirebaseRouter.users.path, keepSynced: true) as? DatabaseReference
-            guard let user = self?.getUpdatedUser(), let dict = user.asDictionary() else { return }
-
-            firebaseReference?.child(user.id).setValue(dict)
-        }
-
         righHandButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
             self?.righHandButton.isSelected = true
             self?.leftHandButton.isSelected = false
@@ -117,5 +116,12 @@ private extension DrillViewController {
         savedUser?.name = nameTextField.text ?? "No Name yet! \(Date().description)"
         savedUser?.notes = notesTextView.text
         return savedUser
+    }
+
+    func saveUser() {
+        let firebaseReference = firebaseService.query(for: FirebaseRouter.users.path, keepSynced: true) as? DatabaseReference
+        guard let user = getUpdatedUser(), let dict = user.asDictionary() else { return }
+
+        firebaseReference?.child(user.id).setValue(dict)
     }
 }
