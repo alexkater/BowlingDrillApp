@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,13 +98,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nZ-am-NJB">
-                                <rect key="frame" x="0.0" y="82" width="600" height="1084"/>
+                                <rect key="frame" x="0.0" y="102" width="600" height="1064"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOR-o2-EVW">
-                                        <rect key="frame" x="0.0" y="0.0" width="778.5" height="1084"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="778.5" height="1064"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-1n-r85">
-                                                <rect key="frame" x="0.0" y="0.0" width="778.5" height="1084"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="778.5" height="1064"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Costumer name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wnb-2H-HaN">
                                                         <rect key="frame" x="324" y="0.0" width="130.5" height="34"/>
@@ -111,7 +112,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleAspectFit" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rv8-Ly-Tew" userLabel="Hole Stack view">
-                                                        <rect key="frame" x="137.5" y="120.5" width="504" height="250"/>
+                                                        <rect key="frame" x="137.5" y="115.5" width="504" height="250"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMh-Dx-Uro" customClass="PitchView" customModule="BowlingDrilling" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
@@ -132,7 +133,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuH-Sr-gWM" customClass="PitchView" customModule="BowlingDrilling" customModuleProvider="target">
-                                                        <rect key="frame" x="264.5" y="456.5" width="250" height="250"/>
+                                                        <rect key="frame" x="264.5" y="446.5" width="250" height="250"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="jbc-Sp-2V7"/>
@@ -140,7 +141,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="3yQ-Uc-3jM" userLabel="Hand Stack View">
-                                                        <rect key="frame" x="306" y="793" width="167" height="30"/>
+                                                        <rect key="frame" x="306" y="778" width="167" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqZ-6j-qrP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="68" height="30"/>
@@ -159,7 +160,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sGC-7f-FF9">
-                                                        <rect key="frame" x="97.5" y="909" width="584" height="175"/>
+                                                        <rect key="frame" x="97.5" y="889" width="584" height="175"/>
                                                         <color key="backgroundColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="175" id="8H5-qn-TTE"/>
@@ -196,7 +197,11 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="2UH-28-Dhi"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFz-cm-Yxa">
-                                <rect key="frame" x="0.0" y="44" width="600" height="30"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="50"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uRS-ZD-xvh"/>
+                                </constraints>
                                 <state key="normal" title="Exit"/>
                                 <connections>
                                     <action selector="exitAction:" destination="V4m-3f-vv9" eventType="touchUpInside" id="Qg6-fX-wdB"/>
@@ -234,4 +239,9 @@
             <point key="canvasLocation" x="1321.7391304347827" y="101.78571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -62,7 +62,7 @@ final class PitchView: NibDesignable {
 private extension PitchView {
 
     func setupViews() {
-        holeSizeContainer.backgroundColor = .white
+        holeSizeContainer.backgroundColor = UIColor(named: "BackgroundColor")
         holeSizeContainer.layer.borderColor = UIColor.lightGray.cgColor
         holeSizeContainer.layer.borderWidth = 2
         holeSizeContainer.layer.cornerRadius = 45

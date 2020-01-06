@@ -11,15 +11,6 @@ import FirebaseDatabase
 import GiphyUISDK
 import GiphyCoreSDK
 
-// TODO: @aarjonilla move to another extensiiom
-extension Array {
-
-/// Accesses the element at the specified position or returns `nil` if `index` is out of bounds.
-subscript(safe index: Int) -> Element? {
-    return index >= startIndex && index < endIndex ? self[index] : nil
-    }
-}
-
 class TableViewController: UITableViewController {
 
     @IBOutlet weak var headerView: UIView!
@@ -27,7 +18,6 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var selectGifButton: UIButton!
 
     private let mediaView = GPHMediaView()
-    private var giphyController: GiphyViewController?
 
     var firebaseService = stateManager.firebaseDatabase
     var users: [User] = [] {
@@ -53,32 +43,17 @@ class TableViewController: UITableViewController {
             self.users = users
         }
 
-        GiphyCore.shared.gifByID(UserDefaults.mediaId) { (response, error) in
-            if let media = response?.data {
-                DispatchQueue.main.sync { [weak self] in
-                    self?.mediaView.setMedia(media)
-                }
-            }
-        }
-
         mediaView.contentMode = .scaleAspectFit
         self.tableView.backgroundView = mediaView
+        mediaView.setup()
 
         createNewUserButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
             self?.showDrillViewController()
         }
         selectGifButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
-            self?.presentGiphy()
+            guard let strongSelf = self else { return }
+            strongSelf.mediaView.showViewController(from: strongSelf)
         }
-    }
-
-    func presentGiphy() {
-        let giphyController = GiphyViewController()
-        giphyController.mediaTypeConfig = [.gifs]
-        present(giphyController, animated: true, completion: { [weak self] in
-            self?.giphyController = giphyController
-            self?.giphyController?.delegate = self
-        })
     }
 }
 
@@ -132,33 +107,5 @@ private extension TableViewController {
         let controller = DrillViewController.instantiate()
         controller.user.value = user
         present(controller, animated: true, completion: nil)
-    }
-}
-
-extension TableViewController: GiphyDelegate {
-
-    func didDismiss(controller: GiphyViewController?) {
-        giphyController = nil
-    }
-
-    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
-        self.mediaView.setMedia(media)
-        UserDefaults.save(mediaId: media.id)
-        giphyController?.dismiss(animated: true, completion: { [weak self] in
-            self?.giphyController = nil
-        })
-   }
-}
-
-extension UserDefaults {
-
-    private static var mediaIdKey: String { return "MediaIDKey"}
-
-    static func save(mediaId id: String) {
-        UserDefaults.standard.set(id, forKey: Self.mediaIdKey)
-    }
-
-    static var mediaId: String {
-        return UserDefaults.standard.string(forKey: mediaIdKey) ?? "l46CxnIvqj8BiLZLy"
     }
 }

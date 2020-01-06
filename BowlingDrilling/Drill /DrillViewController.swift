@@ -10,6 +10,8 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 import FirebaseDatabase
+import GiphyUISDK
+import GiphyCoreSDK
 
 class DrillViewController: UIViewController {
     @IBOutlet weak var leftHolePitchView: PitchView!
@@ -22,6 +24,8 @@ class DrillViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
 
+    private let mediaView = GPHMediaView()
+
     var user = MutableProperty<User?>(nil)
     private let firebaseService = stateManager.firebaseDatabase
 
@@ -30,13 +34,11 @@ class DrillViewController: UIViewController {
 
         setupBindings()
         scrollView.scrollRectToVisible(nameTextField.frame, animated: true)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.main.async { [weak self] in
-            self?.createLines()
-        }
+        mediaView.contentMode = .scaleAspectFit
+        self.addSubviewAndFillToSafeAnchors(mediaView)
+        self.view.sendSubviewToBack(mediaView)
+        self.view.backgroundColor = .black
+        mediaView.setup()
     }
 
     @IBAction func exitAction(_ sender: Any) {
@@ -50,51 +52,21 @@ class DrillViewController: UIViewController {
     }
 }
 
-extension UIView {
-
-    func addLineBetween(startPoint: CGPoint, endPoint: CGPoint) {
-        // create path
-
-        let path = UIBezierPath()
-        path.move(to: startPoint)
-        path.addLine(to: endPoint)
-
-        // Create a `CAShapeLayer` that uses that `UIBezierPath`:
-
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = UIColor.lightGray.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 2
-
-        // Add that `CAShapeLayer` to your view's layer:
-        layer.addSublayer(shapeLayer)
-    }
-}
-
 private extension DrillViewController {
-
-    func createLines() {
-        let leftHoleCenter = leftHolePitchView.convert(leftHolePitchView.holeSizeContainer.center, to: view)
-        let rightHoleCenter = rightHolePitchView.convert(rightHolePitchView.holeSizeContainer.center, to: view)
-        let thumbCenter = thumbHolePitchView.convert(thumbHolePitchView.holeSizeContainer.center, to: view)
-
-        containerView.addLineBetween(startPoint: leftHoleCenter, endPoint: thumbCenter)
-        containerView.addLineBetween(startPoint: rightHoleCenter, endPoint: thumbCenter)
-    }
 
     func setupBindings() {
         user.producer.skipNil()
             .observe(on: UIScheduler())
             .startWithValues { [weak self] (user) in
-            self?.leftHolePitchView.setup(with: user.leftHole, isFingerHole: true)
-            self?.rightHolePitchView.setup(with: user.rightHole, isFingerHole: true)
-            self?.thumbHolePitchView.setup(with: user.thumbHole, isFingerHole: false)
+                self?.leftHolePitchView.setup(with: user.leftHole, isFingerHole: true)
+                self?.rightHolePitchView.setup(with: user.rightHole, isFingerHole: true)
+                self?.thumbHolePitchView.setup(with: user.thumbHole, isFingerHole: false)
         }
 
         righHandButton.reactive.isSelected <~ user.producer.skipNil().map({ $0.hand.isRightHanded })
         leftHandButton.reactive.isSelected <~ user.producer.skipNil().map({ !$0.hand.isRightHanded })
         nameTextField.reactive.text <~ user.producer.skipNil().map { $0.name }
+        notesTextView.reactive.text <~ user.producer.skipNil().map { $0.notes }
 
         righHandButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
             self?.righHandButton.isSelected = true

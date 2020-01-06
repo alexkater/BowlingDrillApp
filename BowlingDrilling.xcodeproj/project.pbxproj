@@ -18,6 +18,10 @@
 		A9127FBD23C35863007FC93B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9127FBC23C35863007FC93B /* FirebaseService.swift */; };
 		A9127FBF23C3588A007FC93B /* DIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9127FBE23C3588A007FC93B /* DIService.swift */; };
 		A9127FC523C35E5B007FC93B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9127FC423C35E5B007FC93B /* GoogleService-Info.plist */; };
+		A992D63323C3B13B00A0F092 /* GiphyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */; };
+		A992D63523C3B16700A0F092 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63423C3B16700A0F092 /* Array+Extension.swift */; };
+		A992D63723C3B18E00A0F092 /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */; };
+		A992D63923C3B25D00A0F092 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63823C3B25D00A0F092 /* UIView+Extension.swift */; };
 		A9E2EFA323C07D48002FB680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA223C07D48002FB680 /* AppDelegate.swift */; };
 		A9E2EFA523C07D48002FB680 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA423C07D48002FB680 /* SceneDelegate.swift */; };
 		A9E2EFA723C07D48002FB680 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA623C07D48002FB680 /* TableViewController.swift */; };
@@ -54,6 +58,10 @@
 		A9127FBC23C35863007FC93B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		A9127FBE23C3588A007FC93B /* DIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIService.swift; sourceTree = "<group>"; };
 		A9127FC423C35E5B007FC93B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyExtensions.swift; sourceTree = "<group>"; };
+		A992D63423C3B16700A0F092 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
+		A992D63823C3B25D00A0F092 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A9E2EF9F23C07D48002FB680 /* BowlingDrilling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingDrilling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E2EFA223C07D48002FB680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9E2EFA423C07D48002FB680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,8 +108,12 @@
 		A9127FAC23C34326007FC93B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A992D63823C3B25D00A0F092 /* UIView+Extension.swift */,
 				A9127FAD23C34332007FC93B /* NibDesignable.swift */,
 				A9127FAF23C3435D007FC93B /* UIView+Constraints.swift */,
+				A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */,
+				A992D63423C3B16700A0F092 /* Array+Extension.swift */,
+				A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,13 +379,17 @@
 				A9127FBF23C3588A007FC93B /* DIService.swift in Sources */,
 				A9127FB323C343C5007FC93B /* PitchView.swift in Sources */,
 				A9E2EFA723C07D48002FB680 /* TableViewController.swift in Sources */,
+				A992D63523C3B16700A0F092 /* Array+Extension.swift in Sources */,
 				A9E2EFA323C07D48002FB680 /* AppDelegate.swift in Sources */,
 				A9127FAB23C32B07007FC93B /* DrillViewController.swift in Sources */,
 				A9127FBD23C35863007FC93B /* FirebaseService.swift in Sources */,
+				A992D63323C3B13B00A0F092 /* GiphyExtensions.swift in Sources */,
+				A992D63923C3B25D00A0F092 /* UIView+Extension.swift in Sources */,
 				A9127FBA23C3525E007FC93B /* PitchModel.swift in Sources */,
 				A9127FB023C3435D007FC93B /* UIView+Constraints.swift in Sources */,
 				A9127FAE23C34332007FC93B /* NibDesignable.swift in Sources */,
 				A9E2EFA523C07D48002FB680 /* SceneDelegate.swift in Sources */,
+				A992D63723C3B18E00A0F092 /* UserDefault+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

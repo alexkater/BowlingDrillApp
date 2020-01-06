@@ -11,7 +11,8 @@ target 'BowlingDrilling' do
   # - https://github.com/ReactiveCocoa/ReactiveCocoa
   pod 'ReactiveCocoa', '10.0.0'
   pod 'Giphy'
-  
+  pod 'IQKeyboardManagerSwift'
+
   # Pods for BowlingDrilling
 
   target 'BowlingDrillingTests' do
