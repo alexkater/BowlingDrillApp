@@ -16,6 +16,8 @@ final class PitchView: NibDesignable {
     @IBOutlet weak var rightTextfield: UITextField!
     @IBOutlet weak var holeSizeTextfield: UITextField!
     @IBOutlet weak var holeSizeContainer: UIView!
+    @IBOutlet weak var cutSpanTextField: UITextField!
+    @IBOutlet weak var spanTextField: UITextField!
 
     init() {
         super.init(frame: .zero)
@@ -33,16 +35,36 @@ final class PitchView: NibDesignable {
         setupViews()
     }
 
+    func setup(with hole: Hole, isFingerHole: Bool) {
+        forwardTextfield.text = hole.forwardPitch
+        backwardTextfield.text = hole.backwardPitch
+        leftTextfield.text = hole.leftPitch
+        rightTextfield.text = hole.rightPitch
+        holeSizeTextfield.text = hole.holeSize
+        cutSpanTextField.text = hole.cutSpan
+        spanTextField.text = hole.span
+        cutSpanTextField.isHidden = !isFingerHole
+        spanTextField.isHidden = !isFingerHole
+    }
+
+    func getHoleValues() -> Hole {
+        return Hole(forwardPitch: forwardTextfield.text ?? "0",
+                    backwardPitch: backwardTextfield.text ?? "0",
+                    leftPitch: leftTextfield.text ?? "0",
+                    rightPitch: rightTextfield.text ?? "0",
+                    holeSize: holeSizeTextfield.text ?? "0",
+                    cutSpan: cutSpanTextField.text ?? "0",
+                    span: spanTextField.text ?? "0")
+    }
 }
 
 // MARK: - Private
 private extension PitchView {
 
     func setupViews() {
-        holeSizeContainer.backgroundColor = .clear
+        holeSizeContainer.backgroundColor = .white
         holeSizeContainer.layer.borderColor = UIColor.lightGray.cgColor
         holeSizeContainer.layer.borderWidth = 2
         holeSizeContainer.layer.cornerRadius = 45
     }
-
 }

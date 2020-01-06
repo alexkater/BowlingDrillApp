@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>349956805700-n1fve6lv457k9afm5h8s6ukheupijuik.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.349956805700-n1fve6lv457k9afm5h8s6ukheupijuik</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA3A-2ToMNX8ujRan4QQ2mNDbuyl9Kxi6I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>349956805700</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.aarjonilla.BowlingDrilling</string>
+	<key>PROJECT_ID</key>
+	<string>bowlingdrill-3de93</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bowlingdrill-3de93.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:349956805700:ios:c4915eaaec75c5a1acd811</string>
+	<key>DATABASE_URL</key>
+	<string>https://bowlingdrill-3de93.firebaseio.com</string>
+</dict>
+</plist>

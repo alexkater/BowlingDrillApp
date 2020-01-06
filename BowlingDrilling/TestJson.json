@@ -1,0 +1,55 @@
+{
+    "users": [{
+        "id": "1",
+        "name" : "Alejandro",
+        "leftHole": {
+            "forwardPitch": "3/8",
+            "backwardPitch": "0",
+            "leftPitch": "3/8",
+            "rightPitch": "0",
+            "holeSize": ""
+        },
+        "rightHole": {
+            "forwardPitch": "3/8",
+            "backwardPitch": "0",
+            "leftPitch": "0",
+            "rightPitch": "3/8",
+            "holeSize": ""
+        },
+        "thumbHole": {
+            "forwardPitch": "1/8",
+            "backwardPitch": "0",
+            "leftPitch": "0",
+            "rightPitch": "0",
+            "holeSize": ""
+        },
+        "hand": "R",
+        "notes": "Nothing yet"
+    }, {
+        "id": "2",
+        "name" : "Catherine",
+        "leftHole": {
+            "forwardPitch": "3/8",
+            "backwardPitch": "0",
+            "leftPitch": "3/8",
+            "rightPitch": "0",
+            "holeSize": ""
+        },
+        "rightHole": {
+            "forwardPitch": "3/8",
+            "backwardPitch": "0",
+            "leftPitch": "0",
+            "rightPitch": "3/8",
+            "holeSize": ""
+        },
+        "thumbHole": {
+            "forwardPitch": "1/8",
+            "backwardPitch": "0",
+            "leftPitch": "0",
+            "rightPitch": "0",
+            "holeSize": ""
+        },
+        "hand": "R",
+        "notes": "Nothing yet"
+    }]
+}
