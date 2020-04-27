@@ -19,6 +19,8 @@ jobs:
       #     key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
       #     restore-keys: |
       #       ${{ runner.os }}-pods-
+      - name: Gem install
+        run:  bundle install
       - name: Pod install
         run: pod install
       - name: Fastlane tests
