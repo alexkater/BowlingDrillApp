@@ -4,9 +4,6 @@
 target 'BowlingDrilling' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  enable_bitcode_for_prebuilt_frameworks!
-  keep_source_code_for_prebuilt_frameworks!
-  all_binary!
 
   # Pods for testing
   pod 'Firebase/Database'
