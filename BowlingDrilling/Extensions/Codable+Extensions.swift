@@ -27,6 +27,18 @@ extension Decodable {
             return nil
         }
     }
+
+    static func decodeSafely(from string: String?,
+                             stringEncoding: String.Encoding = .utf8) -> Self? {
+
+        guard let data = string?.data(using: stringEncoding) else { return nil }
+
+        do {
+            return try JSONDecoder().decode(Self.self, from: data)
+        } catch {
+            return nil
+        }
+    }
 }
 
 extension Encodable {

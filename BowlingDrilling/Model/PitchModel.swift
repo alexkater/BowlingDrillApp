@@ -36,23 +36,23 @@ struct User: Codable {
 }
 
 // MARK: - Hole
-struct Hole: Codable {
+struct Hole: Codable, Equatable {
     let forwardPitch, backwardPitch, leftPitch, rightPitch: String
     let holeSize, cutSpan, span: String
 
     static func make() -> Hole {
-        return Hole(forwardPitch: "", backwardPitch: "", leftPitch: "", rightPitch: "", holeSize: "", cutSpan: "", span: "")
+        return Hole(forwardPitch: "0", backwardPitch: "0", leftPitch: "0", rightPitch: "0", holeSize: "0", cutSpan: "0", span: "0")
     }
 
     static func makeLeftHole() -> Hole {
-        return Hole(forwardPitch: "3/8", backwardPitch: "", leftPitch: "3/8", rightPitch: "", holeSize: "", cutSpan: "", span: "")
+        return Hole(forwardPitch: "3/8", backwardPitch: "0", leftPitch: "3/8", rightPitch: "0", holeSize: "0", cutSpan: "0", span: "0")
     }
 
     static func makeRightHole() -> Hole {
-        return Hole(forwardPitch: "3/8", backwardPitch: "", leftPitch: "", rightPitch: "3/8", holeSize: "", cutSpan: "", span: "")
+        return Hole(forwardPitch: "3/8", backwardPitch: "0", leftPitch: "0", rightPitch: "3/8", holeSize: "0", cutSpan: "0", span: "0")
     }
 
     static func makeThumbHole() -> Hole {
-        return Hole(forwardPitch: "1/8", backwardPitch: "", leftPitch: "", rightPitch: "", holeSize: "", cutSpan: "", span: "")
+        return Hole(forwardPitch: "1/8", backwardPitch: "0", leftPitch: "0", rightPitch: "0", holeSize: "0", cutSpan: "0", span: "0")
     }
 }

@@ -32,6 +32,7 @@
 		A914912F24572D9A0093F68E /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914912E24572D9A0093F68E /* String+Localizable.swift */; };
 		A914913124572DC20093F68E /* DrillingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914913024572DC20093F68E /* DrillingCellViewModel.swift */; };
 		A9149133245730740093F68E /* UserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9149132245730740093F68E /* UserMock.swift */; };
+		A92A525F24573CE500077BF9 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A525E24573CE500077BF9 /* UserSpec.swift */; };
 		A992D63323C3B13B00A0F092 /* GiphyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */; };
 		A992D63523C3B16700A0F092 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63423C3B16700A0F092 /* Array+Extension.swift */; };
 		A992D63723C3B18E00A0F092 /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */; };
@@ -86,6 +87,7 @@
 		A914912E24572D9A0093F68E /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		A914913024572DC20093F68E /* DrillingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingCellViewModel.swift; sourceTree = "<group>"; };
 		A9149132245730740093F68E /* UserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMock.swift; sourceTree = "<group>"; };
+		A92A525E24573CE500077BF9 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
 		A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyExtensions.swift; sourceTree = "<group>"; };
 		A992D63423C3B16700A0F092 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
@@ -227,6 +229,15 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		A92A525B24573CAD00077BF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9127FB623C351EB007FC93B /* TestJson.json */,
+				A92A525E24573CE500077BF9 /* UserSpec.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A9E2EF9623C07D48002FB680 = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +277,7 @@
 		A9E2EFB823C07D4B002FB680 /* BowlingDrillingTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9127FB623C351EB007FC93B /* TestJson.json */,
+				A92A525B24573CAD00077BF9 /* Model */,
 				A9149123245724820093F68E /* Mocks */,
 				A9149120245723560093F68E /* ViewModel */,
 				A9E2EFBB23C07D4B002FB680 /* Info.plist */,
@@ -507,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92A525F24573CE500077BF9 /* UserSpec.swift in Sources */,
 				A91491252457248C0093F68E /* FirebaseServiceMock.swift in Sources */,
 				A91491222457236C0093F68E /* DrillingTableViewModelSpecs.swift in Sources */,
 				A9149133245730740093F68E /* UserMock.swift in Sources */,
