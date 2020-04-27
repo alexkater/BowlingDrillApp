@@ -3,7 +3,7 @@ name: TEST
 on:
   push:
     branches: [ master, dev ]
-    
+
 jobs:
   build:
     name: "Build: Run tests"
@@ -23,3 +23,8 @@ jobs:
         run: pod install
       - name: Fastlane tests
         run: fastlane tests
+      - name: Upload XCOV report
+        uses: actions/upload-artifact@v1
+        with:
+          name: XCOV report
+          path: xcov_output/
