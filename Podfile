@@ -8,8 +8,6 @@ target 'BowlingDrilling' do
   # Pods for testing
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  # Functional reactive programming library used across all app.
-  # - https://github.com/ReactiveCocoa/ReactiveCocoa
   pod 'ReactiveCocoa', '10.0.0'
   pod 'Giphy'
   pod 'IQKeyboardManagerSwift'
