@@ -20,24 +20,11 @@ contents.xcworkspacedata
 .DS_Store
 Thumbs.db
 
-# Carthage
-Carthage
-
 # Fastlane
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/test_output
 
-# NewRelic
-nrdSYM.zip
-upload_dsym_results
-
-# Instabug
-Instabug.framework.dSYM
 
 # CocoaPods
 Pods/
-
-# Ignore all test users files except the example file
-Xapo/Core/Configurations/Dev/TestUsers*.plist
-!Xapo/Core/Configurations/Dev/TestUsers-Example.plist
