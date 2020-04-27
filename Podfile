@@ -6,10 +6,10 @@ target 'BowlingDrilling' do
   use_frameworks!
 
   # Pods for testing
+  pod 'Giphy'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'ReactiveCocoa', '10.0.0'
-  pod 'Giphy'
   pod 'IQKeyboardManagerSwift'
   pod 'NVActivityIndicatorView'
 
