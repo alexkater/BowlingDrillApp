@@ -1,0 +1,25 @@
+name: TEST
+
+on:
+  push:
+    branches: [ master, dev ]
+    
+jobs:
+  build:
+    name: "Build: Run tests"
+    runs-on: macOS-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+      - name: Pod install
+        uses: pod install
+      - name: Fastlane tests
+        uses: fastlane tests
