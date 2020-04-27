@@ -22,7 +22,7 @@ jobs:
       - name: Pod install
         run: pod install
       - name: Fastlane tests
-        run: fastlane tests
+        run: bundle exec fastlane tests
       - name: Upload XCOV report
         uses: actions/upload-artifact@v1
         with:
