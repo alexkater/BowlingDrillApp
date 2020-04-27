@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import ReactiveSwift
 import GiphyUISDK
 import GiphyCoreSDK
+import ReactiveSwift
 
 class DrillingTableViewController: UITableViewController {
 
