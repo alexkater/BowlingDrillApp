@@ -17,7 +17,7 @@ class DrillingTableViewController: UITableViewController {
     @IBOutlet weak var createNewUserButton: UIButton!
     @IBOutlet weak var selectGifButton: UIButton!
 
-    private let mediaView = GPHMediaView(frame: .zero)
+    private let mediaView = GPHMediaView(image: nil)
     var viewModel: DrillingTableViewModelProtocol = DrillingTableViewModel()
 
     private var cellViewModels: [DrillingCellViewModel] {
