@@ -20,6 +20,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pods-
       - name: Pod install
-        uses: pod install
+        run: pod install
       - name: Fastlane tests
-        uses: fastlane tests
+        run: fastlane tests
