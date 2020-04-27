@@ -7,7 +7,7 @@ target 'BowlingDrilling' do
 
 
   # Pods for testing
-  pod 'Giphy'
+  pod 'Giphy', '1.2.5'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'ReactiveCocoa', '10.0.0'
