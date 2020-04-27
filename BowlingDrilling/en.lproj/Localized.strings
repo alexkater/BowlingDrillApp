@@ -1,0 +1,10 @@
+/* 
+  Localized.strings
+  BowlingDrilling
+
+  Created by Alejandro Arjonilla Garcia on 27/04/2020.
+  Copyright © 2020 Alejandro Arjonilla Garcia. All rights reserved.
+*/
+
+"drillscreen.gif.button.title" = "Select Background GIF";
+"drillscreen.drill.button.title" = "Add new Drill";

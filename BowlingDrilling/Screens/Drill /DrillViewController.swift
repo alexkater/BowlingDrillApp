@@ -91,9 +91,9 @@ private extension DrillViewController {
     }
 
     func saveUser() {
-        let firebaseReference = firebaseService.query(for: FirebaseRouter.users.path, keepSynced: true) as? DatabaseReference
-        guard let user = getUpdatedUser(), let dict = user.asDictionary() else { return }
-
-        firebaseReference?.child(user.id).setValue(dict)
+//        let firebaseReference = firebaseService.query(for: FirebaseRouter.users.path, keepSynced: true) as? DatabaseReference
+//        guard let user = getUpdatedUser(), let dict = user.asDictionary() else { return }
+//
+//        firebaseReference?.child(user.id).setValue(dict)
     }
 }

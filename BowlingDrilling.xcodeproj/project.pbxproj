@@ -18,17 +18,30 @@
 		A9127FBD23C35863007FC93B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9127FBC23C35863007FC93B /* FirebaseService.swift */; };
 		A9127FBF23C3588A007FC93B /* DIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9127FBE23C3588A007FC93B /* DIService.swift */; };
 		A9127FC523C35E5B007FC93B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9127FC423C35E5B007FC93B /* GoogleService-Info.plist */; };
+		A91491122456F4660093F68E /* DrillingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91491112456F4660093F68E /* DrillingTableViewModel.swift */; };
+		A91491142456FBA60093F68E /* Codable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91491132456FBA60093F68E /* Codable+Extensions.swift */; };
+		A91491162456FCCC0093F68E /* FirebaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91491152456FCCC0093F68E /* FirebaseRouter.swift */; };
+		A91491192456FE730093F68E /* LoadingProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91491182456FE730093F68E /* LoadingProperty.swift */; };
+		A914911B2456FF9F0093F68E /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914911A2456FF9F0093F68E /* UIViewController+Loading.swift */; };
+		A914911D2456FFC70093F68E /* ReactiveSwift+AssociatedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914911C2456FFC70093F68E /* ReactiveSwift+AssociatedProperty.swift */; };
+		A914911F245722B30093F68E /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914911E245722B30093F68E /* UIViewController+Error.swift */; };
+		A91491222457236C0093F68E /* DrillingTableViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91491212457236C0093F68E /* DrillingTableViewModelSpecs.swift */; };
+		A91491252457248C0093F68E /* FirebaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91491242457248C0093F68E /* FirebaseServiceMock.swift */; };
+		A9149127245729110093F68E /* DrillingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9149126245729110093F68E /* DrillingCell.swift */; };
+		A914912A24572D480093F68E /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = A914912C24572D480093F68E /* Localized.strings */; };
+		A914912F24572D9A0093F68E /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914912E24572D9A0093F68E /* String+Localizable.swift */; };
+		A914913124572DC20093F68E /* DrillingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914913024572DC20093F68E /* DrillingCellViewModel.swift */; };
+		A9149133245730740093F68E /* UserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9149132245730740093F68E /* UserMock.swift */; };
 		A992D63323C3B13B00A0F092 /* GiphyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */; };
 		A992D63523C3B16700A0F092 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63423C3B16700A0F092 /* Array+Extension.swift */; };
 		A992D63723C3B18E00A0F092 /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */; };
 		A992D63923C3B25D00A0F092 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992D63823C3B25D00A0F092 /* UIView+Extension.swift */; };
 		A9E2EFA323C07D48002FB680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA223C07D48002FB680 /* AppDelegate.swift */; };
 		A9E2EFA523C07D48002FB680 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA423C07D48002FB680 /* SceneDelegate.swift */; };
-		A9E2EFA723C07D48002FB680 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA623C07D48002FB680 /* TableViewController.swift */; };
+		A9E2EFA723C07D48002FB680 /* DrillingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFA623C07D48002FB680 /* DrillingTableViewController.swift */; };
 		A9E2EFAA23C07D48002FB680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E2EFA823C07D48002FB680 /* Main.storyboard */; };
 		A9E2EFAC23C07D4A002FB680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E2EFAB23C07D4A002FB680 /* Assets.xcassets */; };
 		A9E2EFAF23C07D4A002FB680 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E2EFAD23C07D4A002FB680 /* LaunchScreen.storyboard */; };
-		A9E2EFBA23C07D4B002FB680 /* BowlingDrillingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EFB923C07D4B002FB680 /* BowlingDrillingTests.swift */; };
 		D0A952D2D56C83295DB14AF3 /* Pods_BowlingDrilling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16071DD6EF1BABECD90CA19C /* Pods_BowlingDrilling.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +71,21 @@
 		A9127FBC23C35863007FC93B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		A9127FBE23C3588A007FC93B /* DIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIService.swift; sourceTree = "<group>"; };
 		A9127FC423C35E5B007FC93B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A91491112456F4660093F68E /* DrillingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingTableViewModel.swift; sourceTree = "<group>"; };
+		A91491132456FBA60093F68E /* Codable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extensions.swift"; sourceTree = "<group>"; };
+		A91491152456FCCC0093F68E /* FirebaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRouter.swift; sourceTree = "<group>"; };
+		A91491182456FE730093F68E /* LoadingProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProperty.swift; sourceTree = "<group>"; };
+		A914911A2456FF9F0093F68E /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
+		A914911C2456FFC70093F68E /* ReactiveSwift+AssociatedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveSwift+AssociatedProperty.swift"; sourceTree = "<group>"; };
+		A914911E245722B30093F68E /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
+		A91491212457236C0093F68E /* DrillingTableViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingTableViewModelSpecs.swift; sourceTree = "<group>"; };
+		A91491242457248C0093F68E /* FirebaseServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceMock.swift; sourceTree = "<group>"; };
+		A9149126245729110093F68E /* DrillingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingCell.swift; sourceTree = "<group>"; };
+		A914912B24572D480093F68E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localized.strings; sourceTree = "<group>"; };
+		A914912D24572D630093F68E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localized.strings; sourceTree = "<group>"; };
+		A914912E24572D9A0093F68E /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		A914913024572DC20093F68E /* DrillingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingCellViewModel.swift; sourceTree = "<group>"; };
+		A9149132245730740093F68E /* UserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMock.swift; sourceTree = "<group>"; };
 		A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyExtensions.swift; sourceTree = "<group>"; };
 		A992D63423C3B16700A0F092 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
@@ -65,13 +93,12 @@
 		A9E2EF9F23C07D48002FB680 /* BowlingDrilling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingDrilling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E2EFA223C07D48002FB680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9E2EFA423C07D48002FB680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A9E2EFA623C07D48002FB680 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A9E2EFA623C07D48002FB680 /* DrillingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingTableViewController.swift; sourceTree = "<group>"; };
 		A9E2EFA923C07D48002FB680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9E2EFAB23C07D4A002FB680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E2EFAE23C07D4A002FB680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9E2EFB023C07D4A002FB680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E2EFB523C07D4B002FB680 /* BowlingDrillingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingDrillingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9E2EFB923C07D4B002FB680 /* BowlingDrillingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingDrillingTests.swift; sourceTree = "<group>"; };
 		A9E2EFBB23C07D4B002FB680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACFA7532410EB0964823F1F6 /* Pods_BowlingDrillingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BowlingDrillingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,11 +136,16 @@
 			isa = PBXGroup;
 			children = (
 				A992D63823C3B25D00A0F092 /* UIView+Extension.swift */,
+				A914911C2456FFC70093F68E /* ReactiveSwift+AssociatedProperty.swift */,
+				A914911A2456FF9F0093F68E /* UIViewController+Loading.swift */,
+				A914911E245722B30093F68E /* UIViewController+Error.swift */,
 				A9127FAD23C34332007FC93B /* NibDesignable.swift */,
 				A9127FAF23C3435D007FC93B /* UIView+Constraints.swift */,
 				A992D63223C3B13B00A0F092 /* GiphyExtensions.swift */,
 				A992D63423C3B16700A0F092 /* Array+Extension.swift */,
 				A992D63623C3B18E00A0F092 /* UserDefault+Extension.swift */,
+				A91491132456FBA60093F68E /* Codable+Extensions.swift */,
+				A914912E24572D9A0093F68E /* String+Localizable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,9 +172,59 @@
 			isa = PBXGroup;
 			children = (
 				A9127FBC23C35863007FC93B /* FirebaseService.swift */,
+				A91491152456FCCC0093F68E /* FirebaseRouter.swift */,
 				A9127FBE23C3588A007FC93B /* DIService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A914910F2456F4440093F68E /* Drilling Table */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2EFA623C07D48002FB680 /* DrillingTableViewController.swift */,
+				A91491112456F4660093F68E /* DrillingTableViewModel.swift */,
+				A9149126245729110093F68E /* DrillingCell.swift */,
+				A914913024572DC20093F68E /* DrillingCellViewModel.swift */,
+			);
+			path = "Drilling Table";
+			sourceTree = "<group>";
+		};
+		A91491102456F4520093F68E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2EFAD23C07D4A002FB680 /* LaunchScreen.storyboard */,
+				A9E2EFA823C07D48002FB680 /* Main.storyboard */,
+				A9127FB123C34386007FC93B /* Drill  */,
+				A914910F2456F4440093F68E /* Drilling Table */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A91491172456FE690093F68E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2EFA423C07D48002FB680 /* SceneDelegate.swift */,
+				A9E2EFA223C07D48002FB680 /* AppDelegate.swift */,
+				A91491182456FE730093F68E /* LoadingProperty.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A9149120245723560093F68E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A91491212457236C0093F68E /* DrillingTableViewModelSpecs.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A9149123245724820093F68E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A91491242457248C0093F68E /* FirebaseServiceMock.swift */,
+				A9149132245730740093F68E /* UserMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		A9E2EF9623C07D48002FB680 = {
@@ -168,18 +250,14 @@
 		A9E2EFA123C07D48002FB680 /* BowlingDrilling */ = {
 			isa = PBXGroup;
 			children = (
-				A9E2EFA223C07D48002FB680 /* AppDelegate.swift */,
-				A9E2EFA423C07D48002FB680 /* SceneDelegate.swift */,
+				A91491172456FE690093F68E /* Common */,
 				A9127FBB23C35856007FC93B /* Services */,
 				A9127FB823C3524F007FC93B /* Model */,
-				A9127FB623C351EB007FC93B /* TestJson.json */,
 				A9127FAC23C34326007FC93B /* Extensions */,
-				A9127FB123C34386007FC93B /* Drill  */,
-				A9E2EFA623C07D48002FB680 /* TableViewController.swift */,
-				A9E2EFA823C07D48002FB680 /* Main.storyboard */,
+				A91491102456F4520093F68E /* Screens */,
 				A9E2EFAB23C07D4A002FB680 /* Assets.xcassets */,
-				A9E2EFAD23C07D4A002FB680 /* LaunchScreen.storyboard */,
 				A9E2EFB023C07D4A002FB680 /* Info.plist */,
+				A914912C24572D480093F68E /* Localized.strings */,
 				A9127FC423C35E5B007FC93B /* GoogleService-Info.plist */,
 			);
 			path = BowlingDrilling;
@@ -188,7 +266,9 @@
 		A9E2EFB823C07D4B002FB680 /* BowlingDrillingTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9E2EFB923C07D4B002FB680 /* BowlingDrillingTests.swift */,
+				A9127FB623C351EB007FC93B /* TestJson.json */,
+				A9149123245724820093F68E /* Mocks */,
+				A9149120245723560093F68E /* ViewModel */,
 				A9E2EFBB23C07D4B002FB680 /* Info.plist */,
 			);
 			path = BowlingDrillingTests;
@@ -235,6 +315,7 @@
 				A9E2EFB123C07D4B002FB680 /* Sources */,
 				A9E2EFB223C07D4B002FB680 /* Frameworks */,
 				A9E2EFB323C07D4B002FB680 /* Resources */,
+				D05DBB7DB2635391B04CAAB3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +353,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = A9E2EF9623C07D48002FB680;
 			productRefGroup = A9E2EFA023C07D48002FB680 /* Products */;
@@ -293,6 +375,7 @@
 				A9127FB723C351EB007FC93B /* TestJson.json in Resources */,
 				A9127FB523C343DA007FC93B /* PitchView.xib in Resources */,
 				A9E2EFAC23C07D4A002FB680 /* Assets.xcassets in Resources */,
+				A914912A24572D480093F68E /* Localized.strings in Resources */,
 				A9E2EFAA23C07D48002FB680 /* Main.storyboard in Resources */,
 				A9127FC523C35E5B007FC93B /* GoogleService-Info.plist in Resources */,
 			);
@@ -369,6 +452,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D05DBB7DB2635391B04CAAB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BowlingDrillingTests/Pods-BowlingDrillingTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BowlingDrillingTests/Pods-BowlingDrillingTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BowlingDrillingTests/Pods-BowlingDrillingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -376,18 +476,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A914913124572DC20093F68E /* DrillingCellViewModel.swift in Sources */,
+				A914912F24572D9A0093F68E /* String+Localizable.swift in Sources */,
 				A9127FBF23C3588A007FC93B /* DIService.swift in Sources */,
 				A9127FB323C343C5007FC93B /* PitchView.swift in Sources */,
-				A9E2EFA723C07D48002FB680 /* TableViewController.swift in Sources */,
+				A91491122456F4660093F68E /* DrillingTableViewModel.swift in Sources */,
+				A9E2EFA723C07D48002FB680 /* DrillingTableViewController.swift in Sources */,
 				A992D63523C3B16700A0F092 /* Array+Extension.swift in Sources */,
 				A9E2EFA323C07D48002FB680 /* AppDelegate.swift in Sources */,
 				A9127FAB23C32B07007FC93B /* DrillViewController.swift in Sources */,
+				A91491162456FCCC0093F68E /* FirebaseRouter.swift in Sources */,
 				A9127FBD23C35863007FC93B /* FirebaseService.swift in Sources */,
+				A91491192456FE730093F68E /* LoadingProperty.swift in Sources */,
+				A9149127245729110093F68E /* DrillingCell.swift in Sources */,
+				A91491142456FBA60093F68E /* Codable+Extensions.swift in Sources */,
 				A992D63323C3B13B00A0F092 /* GiphyExtensions.swift in Sources */,
 				A992D63923C3B25D00A0F092 /* UIView+Extension.swift in Sources */,
+				A914911B2456FF9F0093F68E /* UIViewController+Loading.swift in Sources */,
 				A9127FBA23C3525E007FC93B /* PitchModel.swift in Sources */,
+				A914911F245722B30093F68E /* UIViewController+Error.swift in Sources */,
 				A9127FB023C3435D007FC93B /* UIView+Constraints.swift in Sources */,
 				A9127FAE23C34332007FC93B /* NibDesignable.swift in Sources */,
+				A914911D2456FFC70093F68E /* ReactiveSwift+AssociatedProperty.swift in Sources */,
 				A9E2EFA523C07D48002FB680 /* SceneDelegate.swift in Sources */,
 				A992D63723C3B18E00A0F092 /* UserDefault+Extension.swift in Sources */,
 			);
@@ -397,7 +507,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E2EFBA23C07D4B002FB680 /* BowlingDrillingTests.swift in Sources */,
+				A91491252457248C0093F68E /* FirebaseServiceMock.swift in Sources */,
+				A91491222457236C0093F68E /* DrillingTableViewModelSpecs.swift in Sources */,
+				A9149133245730740093F68E /* UserMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +524,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A914912C24572D480093F68E /* Localized.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A914912B24572D480093F68E /* en */,
+				A914912D24572D630093F68E /* es */,
+			);
+			name = Localized.strings;
+			sourceTree = "<group>";
+		};
 		A9E2EFA823C07D48002FB680 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -435,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -495,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
