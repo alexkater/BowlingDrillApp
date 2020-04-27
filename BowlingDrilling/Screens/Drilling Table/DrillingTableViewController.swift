@@ -17,7 +17,7 @@ class DrillingTableViewController: UITableViewController {
     @IBOutlet weak var createNewUserButton: UIButton!
     @IBOutlet weak var selectGifButton: UIButton!
 
-    private let mediaView = GPHMediaView()
+    private let mediaView = GPHMediaView(frame: .zero)
     var viewModel: DrillingTableViewModelProtocol = DrillingTableViewModel()
 
     private var cellViewModels: [DrillingCellViewModel] {
@@ -105,6 +105,7 @@ private extension DrillingTableViewController {
     func configureGIF() {
         mediaView.contentMode = .scaleAspectFit
         self.tableView.backgroundView = mediaView
+        mediaView.frame = self.tableView.backgroundView?.frame ?? .zero
         mediaView.setup()
     }
 
