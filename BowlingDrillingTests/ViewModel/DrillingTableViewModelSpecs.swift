@@ -35,7 +35,7 @@ final class DrillingTableViewModelSpec: QuickSpec {
             context("Static values") {
 
                 it("Buttons texts are correct") {
-                    expect(viewModel.addDrillButtonTitle.value) == "drillscreen.gif.button.title".localized
+                    expect(viewModel.addDrillButtonTitle.value) == "drillscreen.drill.button.title".localized
                 }
             }
         }

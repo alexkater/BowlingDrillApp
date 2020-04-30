@@ -36,7 +36,7 @@ final class DrillViewModelSpec: QuickSpec {
                 expect(viewModel.rightHole.value) == HoleViewModel(with: Hole.makeRightHole(), isFingerHole: true)
                 expect(viewModel.thumbHole.value) == HoleViewModel(with: Hole.makeThumbHole(), isFingerHole: true)
                 expect(viewModel.hand.value) == .right
-                expect(viewModel.name.value) == ""
+                expect(viewModel.name.value) == "Change name \(Date().drillingDescription)"
                 expect(viewModel.notes.value) == ""
             }
         }
@@ -54,7 +54,10 @@ final class DrillViewModelSpec: QuickSpec {
                         viewModel.saveAction.apply(false)
                             .on(started: { expect(viewModel.loading.value) == true })
                             .on(value: { expect($0) == false })
-                            .on(completed: { expect(viewModel.loading.value) == false })
+                            .on(completed: {
+                                expect(viewModel.loading.value) == false
+                                done()
+                            })
                             .start()
                     }
                 }
@@ -70,10 +73,10 @@ final class DrillViewModelSpec: QuickSpec {
                     waitUntil { (done) in
                         viewModel.saveAction.apply(true)
                             .on(started: { expect(viewModel.loading.value) == true })
-                            .on(failed: { expect($0).toNot(beNil()) })
-                            .on(completed: {
+                            .on(failed: {
+                                expect($0).toNot(beNil())
                                 expect(viewModel.loading.value) == false
-                                expect(viewModel.error.value).toNot(beNil())
+                                done()
                             })
                             .start()
                     }

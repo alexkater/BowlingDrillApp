@@ -18,7 +18,7 @@ final class UserSpec: QuickSpec {
         var user: User?
 
 
-        fdescribe("Parsing") {
+        describe("Parsing") {
 
             beforeEach {
                 user = User.decodeSafely(from: self.jsonString)
