@@ -15,6 +15,7 @@ final class FirebaseServiceMock: FirebaseDatabaseProtocol {
 
     var observeObjectsMock: [FirebaseRouter: SignalProducer<[Any], Error>] = [:]
     var deleteObjectMock: [FirebaseRouter: SignalProducer<Void, Error>] = [:]
+    var saveObjectMock: [FirebaseRouter: SignalProducer<Void, Error>] = [:]
 
     func observeObjects<T: Decodable>(route query: FirebaseRouter) -> SignalProducer<[T], Error> {
         let mapped = observeObjectsMock[query]?.map { $0 as! [T] }
@@ -24,8 +25,12 @@ final class FirebaseServiceMock: FirebaseDatabaseProtocol {
     func deleteObject(route query: FirebaseRouter) -> SignalProducer<Void, Error> {
         return deleteObjectMock[query] ?? .empty
     }
+
+    func saveObject<T>(route: FirebaseRouter, object: T) -> SignalProducer<Void, Error> where T : Decodable, T : Encodable {
+        return saveObjectMock[route] ?? .empty
+    }
 }
 
 enum FirebaseError: Error {
-    case nodataFound
+    case nodataFound, undefinedError
 }

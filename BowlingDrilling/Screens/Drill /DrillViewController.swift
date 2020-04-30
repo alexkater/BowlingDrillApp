@@ -10,8 +10,6 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 import FirebaseDatabase
-import GiphyUISDK
-import GiphyCoreSDK
 
 class DrillViewController: UIViewController {
     @IBOutlet weak var leftHolePitchView: PitchView!
@@ -24,49 +22,48 @@ class DrillViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
 
-    private let mediaView = GPHMediaView()
+    var viewModel: DrillViewModelProtocol!
 
-    var user = MutableProperty<User?>(nil)
-    private let firebaseService = stateManager.firebaseDatabase
-
+    private lazy var backButton = UIBarButtonItem(title: "Back", style: .plain,
+                                                  target: self, action: #selector(backButtonTapped))
+    private lazy var saveButton = UIBarButtonItem(title: "Save", style: .plain,
+                                                  target: self, action: #selector(saveButtonTapped))
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupBindings()
         scrollView.scrollRectToVisible(nameTextField.frame, animated: true)
-        mediaView.contentMode = .scaleAspectFit
-        self.addSubviewAndFillToSafeAnchors(mediaView)
-        self.view.sendSubviewToBack(mediaView)
-        self.view.backgroundColor = .black
-        mediaView.setup()
+        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.rightBarButtonItem = saveButton
     }
 
-    @IBAction func exitAction(_ sender: Any) {
+    @objc func saveButtonTapped() {
         saveUser()
-        dismiss(animated: true, completion: nil)
     }
 
-    static func instantiate() -> Self
+    @objc func backButtonTapped() {
+        saveUser(true)
+    }
+
+    static func instantiate(with user: User) -> Self
     {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrillViewController") as! Self
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrillViewController") as! Self
+        controller.viewModel = DrillViewModel(user: user)
+        return controller
     }
 }
 
 private extension DrillViewController {
 
     func setupBindings() {
-        user.producer.skipNil()
-            .observe(on: UIScheduler())
-            .startWithValues { [weak self] (user) in
-                self?.leftHolePitchView.setup(with: user.leftHole, isFingerHole: true)
-                self?.rightHolePitchView.setup(with: user.rightHole, isFingerHole: true)
-                self?.thumbHolePitchView.setup(with: user.thumbHole, isFingerHole: false)
-        }
+        leftHolePitchView.reactive.viewModel <~ viewModel.leftHole.producer.skipNil()
+        rightHolePitchView.reactive.viewModel <~ viewModel.rightHole.producer.skipNil()
+        thumbHolePitchView.reactive.viewModel <~ viewModel.thumbHole.producer.skipNil()
 
-        righHandButton.reactive.isSelected <~ user.producer.skipNil().map({ $0.hand.isRightHanded })
-        leftHandButton.reactive.isSelected <~ user.producer.skipNil().map({ !$0.hand.isRightHanded })
-        nameTextField.reactive.text <~ user.producer.skipNil().map { $0.name }
-        notesTextView.reactive.text <~ user.producer.skipNil().map { $0.notes }
+        righHandButton.reactive.isSelected <~ viewModel.hand.map { $0.isRightHanded }
+        leftHandButton.reactive.isSelected <~ viewModel.hand.map { !$0.isRightHanded }
+        nameTextField.reactive.text <~ viewModel.name
+        notesTextView.reactive.text <~ viewModel.notes
 
         righHandButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
             self?.righHandButton.isSelected = true
@@ -77,23 +74,19 @@ private extension DrillViewController {
             self?.leftHandButton.isSelected = true
             self?.righHandButton.isSelected = false
         }
+
+        backButton.reactive.title <~ viewModel.title
+        saveButton.reactive.title <~ viewModel.saveButtonTitle
+
+        isLoading <~ viewModel.loading
+        error <~ viewModel.error
+
+        viewModel.saveAction.values.observeValues { [weak self] (haveToPop) in
+            if haveToPop { self?.navigationController?.popViewController(animated: true) }
+        }
     }
 
-    func getUpdatedUser() -> User? {
-        var savedUser = user.value
-        savedUser?.leftHole = leftHolePitchView.getHoleValues()
-        savedUser?.rightHole = rightHolePitchView.getHoleValues()
-        savedUser?.thumbHole = thumbHolePitchView.getHoleValues()
-        savedUser?.hand = righHandButton.isSelected ? .right : .left
-        savedUser?.name = nameTextField.text ?? "No Name yet! \(Date().description)"
-        savedUser?.notes = notesTextView.text
-        return savedUser
-    }
-
-    func saveUser() {
-//        let firebaseReference = firebaseService.query(for: FirebaseRouter.users.path, keepSynced: true) as? DatabaseReference
-//        guard let user = getUpdatedUser(), let dict = user.asDictionary() else { return }
-//
-//        firebaseReference?.child(user.id).setValue(dict)
+    func saveUser(_ haveToDissmiss: Bool = false) {
+        viewModel.saveAction.apply(haveToDissmiss).start()
     }
 }

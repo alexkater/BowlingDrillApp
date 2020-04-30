@@ -8,3 +8,5 @@
 
 "drillscreen.gif.button.title" = "Select Background GIF";
 "drillscreen.drill.button.title" = "Add new Drill";
+"drillscreen.navbar.title" = "Back";
+"drillscreen.navbar.save-button.title" = "Save";

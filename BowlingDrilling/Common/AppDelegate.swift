@@ -9,15 +9,12 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
-import GiphyUISDK
-import GiphyCoreSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        Giphy.configure(apiKey: "wlbQz6IczlcwIMg7ER3vxlvqwys9IVKN")
         IQKeyboardManager.shared.enable = true
 
         return true

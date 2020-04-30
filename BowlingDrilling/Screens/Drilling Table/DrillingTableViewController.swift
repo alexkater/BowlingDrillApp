@@ -7,29 +7,27 @@
 //
 
 import UIKit
-import GiphyUISDK
-import GiphyCoreSDK
 import ReactiveSwift
 
 class DrillingTableViewController: UITableViewController {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var createNewUserButton: UIButton!
-    @IBOutlet weak var selectGifButton: UIButton!
 
-    private let mediaView = GPHMediaView(image: nil)
     var viewModel: DrillingTableViewModelProtocol = DrillingTableViewModel()
 
     private var cellViewModels: [DrillingCellViewModel] {
         return viewModel.cellViewModels.value
     }
+    private var backgroundView: UIImageView = UIImageView(image: UIImage(named: "Background"))
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureGIF()
         configureTableView()
         setupBindings()
+        navigationController?.navigationBar.barTintColor = .white
+        title = "Welcome to Bowling Drilling"
     }
 }
 
@@ -74,9 +72,7 @@ private extension DrillingTableViewController {
 
     func showDrillViewController(with user: User = .make()) {
 
-        let controller = DrillViewController.instantiate()
-        controller.user.value = user
-//        present(controller, animated: true, completion: nil)
+        let controller = DrillViewController.instantiate(with: user)
         show(controller, sender: nil)
     }
 
@@ -84,10 +80,6 @@ private extension DrillingTableViewController {
 
         createNewUserButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
             self?.showDrillViewController()
-        }
-        selectGifButton.reactive.controlEvents(.touchUpInside).observeValues { [weak self] (_) in
-            guard let strongSelf = self else { return }
-            strongSelf.mediaView.showViewController(from: strongSelf)
         }
 
         viewModel.cellViewModels.producer.startWithValues() { [weak self] _ in
@@ -98,20 +90,14 @@ private extension DrillingTableViewController {
         isLoading <~ viewModel.loading
         error <~ viewModel.error
 
-        selectGifButton.reactive.title <~ viewModel.changeBackgroundButtonTitle
         createNewUserButton.reactive.title <~ viewModel.addDrillButtonTitle
-    }
-
-    func configureGIF() {
-        mediaView.contentMode = .scaleAspectFit
-        self.tableView.backgroundView = mediaView
-        mediaView.frame = self.tableView.backgroundView?.frame ?? .zero
-        mediaView.setup()
     }
 
     func configureTableView() {
         tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView()
         tableView.reloadData()
+        tableView.backgroundView = backgroundView
+        backgroundView.contentMode = .scaleAspectFit
     }
 }

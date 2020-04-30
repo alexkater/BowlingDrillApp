@@ -11,7 +11,6 @@ import ReactiveSwift
 
 protocol DrillingTableViewModelProtocol {
     var addDrillButtonTitle: Property<String> { get }
-    var changeBackgroundButtonTitle: Property<String> { get }
     var cellViewModels: Property<[DrillingCellViewModel]> { get }
     var loading: LoadingProperty { get }
     var error: Property<String?> { get }
@@ -25,8 +24,7 @@ final class DrillingTableViewModel: DrillingTableViewModelProtocol {
     lazy var loading = LoadingProperty(tracker: loadingTracker)
     lazy var error = Property(capturing: mutableError)
 
-    var addDrillButtonTitle = Property(value: "drillscreen.gif.button.title".localized)
-    var changeBackgroundButtonTitle = Property(value: "drillscreen.drill.button.title".localized)
+    var addDrillButtonTitle = Property(value: "drillscreen.drill.button.title".localized)
 
     private let mutableError = MutableProperty<String?>(nil)
     private let loadingTracker = LoadingTrackerProperty()

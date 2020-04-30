@@ -8,3 +8,6 @@
 
 "drillscreen.gif.button.title" = "GIF: Fondo de pantallas";
 "drillscreen.drill.button.title" = "Añadir nuevo Drill";
+"drillscreen.navbar.title" = "Salir";
+"drillscreen.navbar.save-button.title" = "Guardar";
+

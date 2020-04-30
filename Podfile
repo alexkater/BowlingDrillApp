@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+
 use_frameworks!
 
 target 'BowlingDrilling' do
@@ -7,7 +8,6 @@ target 'BowlingDrilling' do
 
 
   # Pods for testing
-  pod 'Giphy', '1.2.5'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'ReactiveCocoa', '10.0.0'

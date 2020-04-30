@@ -15,6 +15,8 @@ protocol FirebaseDatabaseProtocol {
     func observeObjects<T: Decodable>(route: FirebaseRouter) -> SignalProducer<[T], Error>
 
     func deleteObject(route: FirebaseRouter) -> SignalProducer<Void, Error>
+
+    func saveObject<T: Codable>(route: FirebaseRouter, object: T) -> SignalProducer<Void, Error>
 }
 
 final class FirebaseService: FirebaseDatabaseProtocol {
@@ -37,7 +39,7 @@ extension FirebaseService {
     }
     
     func observeObjects<T>(route: FirebaseRouter) -> SignalProducer<[T], Error> where T : Decodable {
-        SignalProducer { [weak self] observer, _ in
+        SignalProducer { [weak self] observer, lifetime in
             let firebaseQuery = self?.query(for: route.path)
             firebaseQuery?.observe(.value, with: { dataSnapshot in
 
@@ -45,8 +47,11 @@ extension FirebaseService {
                     T.decodeSafely(from: $0)
                 }
                 observer.send(value: objects)
-                observer.sendCompleted()
             })
+
+            lifetime.observeEnded {
+                observer.sendCompleted()
+            }
         }
     }
 
@@ -62,19 +67,22 @@ extension FirebaseService {
         }
     }
 
+    func saveObject<T: Codable>(route: FirebaseRouter, object: T) -> SignalProducer<Void, Error> {
+        SignalProducer { [weak self] observer, _ in
+            (self?.query(for: route.path) as? DatabaseReference)?.setValue(object.dictionary) { (error, _) in
+                if let error = error {
+                    observer.send(error: error)
+                } else {
+                    observer.send(value: ())
+                    observer.sendCompleted()
+                }
+            }
+        }
+    }
+
     func query(for path: String, keepSynced: Bool) -> DatabaseQuery? {
         let reference = databaseReference?.child(path)
         reference?.keepSynced(keepSynced)
         return reference
-    }
-
-    func saveObject(_ value: [String: Any], router: FirebaseRouter, completion: ((_ lastKey: String?, _ error: Error?) -> ())?) {
-
-        let something = databaseReference?.child(router.path).childByAutoId()
-
-        something?.setValue(value) { (error, reference) in
-
-            completion?(reference.key, error)
-        }
     }
 }

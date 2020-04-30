@@ -8,6 +8,17 @@
 
 import Foundation
 
+extension Date {
+
+    var drillingDescription: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return dateFormatter.string(from: self)
+    }
+}
+
 // MARK: - User
 struct User: Codable {
 
@@ -26,7 +37,7 @@ struct User: Codable {
 
     static func make() -> User {
         return User(id: UUID().uuidString,
-                    name: "No Name yet! \(Date().description)",
+                    name: "Change name \(Date().drillingDescription)",
                     notes: "",
                     leftHole: .makeLeftHole(),
                     rightHole: .makeRightHole(),
@@ -37,7 +48,7 @@ struct User: Codable {
 
 // MARK: - Hole
 struct Hole: Codable, Equatable {
-    let forwardPitch, backwardPitch, leftPitch, rightPitch: String
+    var forwardPitch, backwardPitch, leftPitch, rightPitch: String
     let holeSize, cutSpan, span: String
 
     static func make() -> Hole {
